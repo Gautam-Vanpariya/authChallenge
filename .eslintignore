@@ -1,0 +1,7 @@
+
+public/
+node_modules/
+validations/
+bin/
+upload/
+utils/constant.js
