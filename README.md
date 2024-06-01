@@ -45,3 +45,29 @@ EMAIL_PASS=your-email-password
 npm start
 # or
 yarn start
+
+### API list
+
+# User Register
+/api/v1/auth/register
+
+# User Login
+/api/v1/auth/login
+
+# Change Existing Password - Need Auth Token
+/api/v1/auth/changePassword
+
+# Forgot Password
+/api/v1/auth/forgotPassword
+
+# Reset Password - Need linkId from forgot Password Link
+/api/v1/auth/resetPassword
+
+# Get Profile - Need Auth Token
+/api/v1/users/myProfile
+
+# Get All User List - Need Auth Token
+/api/v1/users/list
+
+# Kindly Fok Collection to hit API
+https://auth66-7789.postman.co/workspace/auth-Workspace~053e9e66-8a6f-4515-8ba9-60a31c61f884/collection/34613950-e287e2e9-5a7e-45c2-a98d-d863d71aff82?action=share&creator=34613950
