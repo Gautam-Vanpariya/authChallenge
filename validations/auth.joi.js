@@ -14,10 +14,18 @@ exports.register = {
       last_name            : Joi.string().trim().max(60).required(),
       email                : Joi.string().email().trim().lowercase().max(60).required(),
       password             : Joi.string().trim().min(5).max(60).required(),
-      confirm_password     : Joi.string().valid(Joi.ref("password")).required(),
     })
   };
   
+
+  exports.changeUserPassword = {
+    body: Joi.object({
+      password          : Joi.string().trim().min(5).max(60).required(),
+      confirm_password  : Joi.string().trim().min(5).max(60).required().valid(Joi.ref('password')).messages({
+        'any.only': 'Password and confirm password do not match',
+    }),
+    })
+  };
 
 exports.forgotPassword = {
   body: Joi.object({

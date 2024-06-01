@@ -6,16 +6,18 @@ const { USER_STATUS } = require("../utils/enums");
 
 const schema = new mongoose.Schema({
     // BASIC INFO
-    first_naame            : { type: String, trim: true, max: 128, default: null },
-    last_name              : { type: String, trim: true, max: 128, default: null },
-    email                  : { type: String, trim: true, lowercase: true, max: 128, default: null },
-    status                 : { type: String, enum: [...Object.values(USER_STATUS)], default: USER_STATUS.NEW },
+    first_name              : { type: String, require: true, trim: true, max: 128, default: null },
+    last_name               : { type: String, require: true, trim: true, max: 128, default: null },
+    email                   : { type: String, require: true, trim: true, lowercase: true, max: 128, default: null },
+    status                  : { type: String, enum: [...Object.values(USER_STATUS)], default: USER_STATUS.ACTIVE },
     // SETTING
-    password               : { type: String, trim: true, default: null },
-    reset_token            : { type: String, trim: true, default: null },
-    reset_token_expires_at : { type: Date, default: null },
+    password                : { type: String, require: true, trim: true, default: null },
+    reset_token             : { type: String, trim: true, default: null },
+    reset_token_expires_at  : { type: Date, default: null },
+    registration_token               : { type: String, trim: true, default: null },
+    registration_token_expire_at      : { type: Date, default: null },
     // META
-    is_deleted             : { type: Boolean, default: false }
+    is_deleted              : { type: Boolean, default: false }
 },
 {
     timestamps             : {
